@@ -1,5 +1,5 @@
 # authentication-project
-##Long Practice - Authenticate Me
+## Long Practice - Authenticate Me
 
 In this multi-phase project, you will learn how to put together an entire Express application with authentication. When you are finished, you will have a full project starter that you could use for creating your first API.
 
