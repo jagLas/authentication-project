@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static async login({credential, password}) {
-      const {OP} = require('sequelize');
+      const {Op} = require('sequelize');
       const user = await User.scope('loginUser').findOne({
         where: {
           [Op.or]: [
