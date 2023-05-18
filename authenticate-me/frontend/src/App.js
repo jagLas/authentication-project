@@ -1,6 +1,20 @@
+import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import LoginFormPage from "./components/LoginFormPage";
+import { useSelector } from "react-redux";
+
 function App() {
+  const user = useSelector(state => state.sessionReducer.user)
+
   return (
-    <h1>Hello from App</h1>
+    <>
+      <Route path='/'>
+        <h1>Landing Page</h1>
+      </Route>
+      <Route path='/login'>
+        <LoginFormPage />
+      </Route>
+    </>
+
   );
 }
 

@@ -14,21 +14,16 @@ export const setSession = (user) => {
 //removes the user from the session store
 export const removeSession = () => {
     return {
-        type: REMOVE_SESSION,
-        user: {}
+        type: REMOVE_SESSION
     }
 }
 
 //thunk to set the user in the session store
 export const login = (login) => async dispatch => {
-    if (!login.credential || !login.password) {
-        throw new Error('request requires a credential and password')
-    }
     const res = await csrfFetch('/api/session', {
         method: 'POST',
         body: JSON.stringify(login)
     });
-
 
     if (res.ok) {
         const user = await res.json();
