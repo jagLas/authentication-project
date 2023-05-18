@@ -7,9 +7,10 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.post('/test', function(req, res) {
-    res.json({ requestBody: req.body });
-});
+//for testing csrfFetch on frontend
+// router.post('/test', function(req, res) {
+//     res.json({ requestBody: req.body });
+// });
 
 /*
 //routest for testing middleware auth functions
