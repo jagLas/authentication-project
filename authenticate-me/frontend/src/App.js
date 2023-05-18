@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Route path='/'>
-        <h1>Landing Page</h1>
+        <h1>Authenticate Me Project</h1>
       </Route>
       <Route path='/login'>
         <LoginFormPage />

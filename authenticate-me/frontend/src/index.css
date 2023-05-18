@@ -1,8 +1,4 @@
 /* TODO Add site wide styles */
-.error {
-    color: red;
-    /* font-size: var(--error-font-size); */
-    height: 15px;
-    width: 220px;
-    margin: 3px;
+h1 {
+    text-align: center;
 }
