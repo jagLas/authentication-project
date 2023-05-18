@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../store/session";
+import './SignupForm.css';
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 function SignupFormPage () {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user)
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,11 +14,9 @@ function SignupFormPage () {
     const [errors, setErrors] = useState({});
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
-    //TODO: export to app and set at /signup route
-    // make error display better
-    // redirect to / if a user is already in session
-    // make pretty
-    //testing
+    if(user) {
+        return <Redirect to='/'></Redirect>
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +40,8 @@ function SignupFormPage () {
             setConfirmPassword('');
         } catch (e) {
             const errors = await e.json();
-            setErrors(errors.errors.toString())
+            const errorMessage = errors.errors.join(' and ')
+            setErrors(errorMessage)
             console.log(errors.errors.toString())
         }
 
@@ -47,7 +49,7 @@ function SignupFormPage () {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="signup-form" onSubmit={handleSubmit}>
             <label>
                 Username
                 <input
@@ -81,7 +83,7 @@ function SignupFormPage () {
                 />
             </label>
             <input type="submit"/>
-            <div className="error">{hasSubmitted && errors && `* ${errors}`}</div>
+            <p className="error">{hasSubmitted && errors}</p>
         </form>
     )
 }

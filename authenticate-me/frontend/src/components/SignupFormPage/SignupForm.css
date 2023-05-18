@@ -1,7 +1,8 @@
 .error {
     color: red;
     /* font-size: var(--error-font-size); */
-    height: 15px;
+    min-height: 15px;
+    height: fit-content;
     width: 220px;
     margin: 3px;
 }

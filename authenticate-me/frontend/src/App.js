@@ -26,7 +26,10 @@ function App() {
       <Route path='/login'>
         <LoginFormPage />
       </Route>
-      <SignupFormPage/>
+      <Route path='/signup'>
+        <SignupFormPage/>
+      </Route>
+
     </>
 
   );
