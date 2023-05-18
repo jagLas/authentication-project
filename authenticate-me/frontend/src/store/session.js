@@ -47,6 +47,20 @@ export const restoreLogin = () => async dispatch => {
     }
 }
 
+//thunk to signup
+export const signup = (payload) => async dispatch => {
+    const res = await csrfFetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+        const user = await res.json();
+        dispatch(setSession(user));
+        return user;
+    }
+}
+
 const initialState = {user: null}
 
 const sessionReducer = (state = initialState, action) => {
