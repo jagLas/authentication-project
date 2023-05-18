@@ -1,11 +1,23 @@
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import LoginFormPage from "./components/LoginFormPage";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { restoreLogin } from "./store/session";
 
 function App() {
-  const user = useSelector(state => state.sessionReducer.user)
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  return (
+  useEffect(() => {
+    async function getLogin() {
+      await dispatch(restoreLogin());
+      setIsLoaded(true);
+    }
+    
+    getLogin();
+  }, [dispatch])
+
+  return isLoaded && (
     <>
       <Route path='/'>
         <h1>Authenticate Me Project</h1>
