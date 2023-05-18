@@ -30,8 +30,6 @@ function LoginFormPage () {
             setPassword('');
         } catch (e) {
             setError(await e.json());
-            console.log(error)
-            console.log(error.title)
         }
 
         setHasSubmitted(true);
@@ -51,7 +49,7 @@ function LoginFormPage () {
             <label>
                 Password
                 <input
-                    type="text"
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
