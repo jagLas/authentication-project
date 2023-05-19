@@ -1,0 +1,69 @@
+.navbar {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0px auto;
+    padding: 8px 16px;
+    height: 50px;
+    border-bottom: 1px solid #2f4f4f;
+    color: #2f4f4f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.nav-accounts {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+}
+
+#profile-icon {
+    height: fit-content;
+    background: none;
+    border: none;
+}
+
+#logout {
+    color: inherit;
+    background-color: #cbe5e5;
+    border: 1px solid #2f4f4f;
+    font-family: inherit;
+}
+
+.profile-expand {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    height: 50px;
+    /* border: 1px solid blue; */
+    min-width: fit-content;
+    padding: 0px 8px;
+    margin: 0px;
+}
+
+.profile-expand li {
+    list-style-type: none;
+    width: fit-content;
+    /* color: inherit; */
+}

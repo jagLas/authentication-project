@@ -21,10 +21,9 @@ function App() {
 
   return isLoaded && (
     <>
-      <Route path='/'>
-        <Navigation />
-        <h1>Authenticate Me Project</h1>
-      
+      <Navigation />
+      <h1>Authenticate Me Project</h1>
+      <Route exact path='/'>
       </Route>
       <Route path='/login'>
         <LoginFormPage />

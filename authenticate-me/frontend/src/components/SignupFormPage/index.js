@@ -49,42 +49,45 @@ function SignupFormPage () {
     }
 
     return (
-        <form className="signup-form" onSubmit={handleSubmit}>
-            <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </label>
-            <label>
-                E-mail
-                <input 
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </label>
-            <label>
-                Password
-                <input 
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input 
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-            </label>
-            <input type="submit"/>
-            <p className="error">{hasSubmitted && errors}</p>
-        </form>
+        <>
+            <form className="signup-form" onSubmit={handleSubmit}>
+            <h2>Signup</h2>
+                <label>
+                    Username
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </label>
+                <label>
+                    E-mail
+                    <input 
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Password
+                    <input 
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Confirm Password
+                    <input 
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                </label>
+                <input type="submit"/>
+                <p className="error">{hasSubmitted && errors}</p>
+            </form>
+        </>
     )
 }
 

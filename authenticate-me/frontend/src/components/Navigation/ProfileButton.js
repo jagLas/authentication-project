@@ -34,26 +34,27 @@ function ProfileButton ({user}) {
     }, [showMenu])
 
     return (
-        <>
-            <button onClick={openMenu}>
+        <div className="nav-profile">
+            {showMenu ?
+                <>
+                    <ul className="profile-expand">
+                        <li>{user.username}</li>
+                        <li>{user.email}</li>
+                        <li><button id='logout' onClick={logout}>Logout</button></li>
+                    </ul>
+                </>
+             : null}
+            <button id='profile-icon' onClick={openMenu}>
             <i
                 className="fas fa-user"
                 style={{
-                    color: '#00216f',
+                    color: '#2f4f4f',
                     fontSize: '48px'
                 }}
             ></i>
             </button>
-            {showMenu ?
-                <>
-                    <ul>
-                        <li>{user.username}</li>
-                        <li>{user.email}</li>
-                        <li><button onClick={logout}>Logout</button></li>
-                    </ul>
-                </>
-             : null}
-        </>
+
+        </div>
     )
 }
 
