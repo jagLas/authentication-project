@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { signout } from "../../store/session";
 
@@ -14,11 +14,28 @@ function ProfileButton ({user}) {
         }
     }
 
-    //todo: close when outside click is made
+    const openMenu = () => {
+        // debugger
+        console.log(showMenu)
+        if(showMenu) return;
+        setShowMenu(true);
+    }
+
+    useEffect(() => {
+        if(!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false);
+        }
+
+        document.addEventListener('click', closeMenu)
+
+        return () => document.removeEventListener('click', closeMenu)
+    }, [showMenu])
 
     return (
         <>
-            <button onClick={() => setShowMenu(!showMenu)}>
+            <button onClick={openMenu}>
             <i
                 className="fas fa-user"
                 style={{
