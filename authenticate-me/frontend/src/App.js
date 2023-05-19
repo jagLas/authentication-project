@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { restoreLogin } from "./store/session";
 import SignupFormPage from "./components/SignupFormPage";
+import Navigation from "./components/Navigation";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ function App() {
   return isLoaded && (
     <>
       <Route path='/'>
+        <Navigation />
         <h1>Authenticate Me Project</h1>
+      
       </Route>
       <Route path='/login'>
         <LoginFormPage />
